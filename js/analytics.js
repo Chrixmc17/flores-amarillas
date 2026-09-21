@@ -8,7 +8,7 @@
   3. Reemplaza el texto vacío de GOATCOUNTER_CODE.
 */
 (() => {
-  const GOATCOUNTER_CODE = "";
+  const GOATCOUNTER_CODE = "chrixmc17";
 
   if (!GOATCOUNTER_CODE.trim()) {
     return;
