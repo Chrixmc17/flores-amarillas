@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flores amarillas para Betsua 💛</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dedication-page">
+
+  <div class="falling-petals" id="petals"></div>
+
+  <header class="dedication-hero">
+    <div class="glass-card">
+      <span class="eyebrow">Un pequeño detalle desde lejos</span>
+      <h1>Betsua 💛</h1>
+      <p>
+        Hoy pensé en las flores amarillas y también pensé en ti.
+        Como ya no estás cerca para poder entregártelas personalmente,
+        quise buscar otra manera de hacerte llegar algo bonito.
+      </p>
+      <a href="#mensaje" class="main-button link-button">Seguir 🌻</a>
+    </div>
+  </header>
+
+  <section id="mensaje" class="content-section">
+    <div class="content-card">
+      <h2>Unas flores que encontraron la forma de llegar</h2>
+      <p>
+        Betsua, si estuvieras aquí probablemente este detalle sería mucho más sencillo:
+        unas flores amarillas y unas cuantas palabras.
+        Pero como ahora estás lejos, terminé convirtiéndolo en esta pequeña página.
+      </p>
+      <p>
+        Simplemente eres una persona muy especial para mí
+        y me hacía ilusión poder dejarte algo bonito en este día.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="content-card">
+      <h2>Solo quería que supieras esto</h2>
+      <div class="reason-grid">
+        <div class="reason">Aunque ahora estés lejos, sigo recordándote con mucho cariño.</div>
+        <div class="reason">A veces extraño hablar contigo y esas pequeñas cosas que antes parecían tan normales.</div>
+        <div class="reason">Me alegra haberte conocido, porque para mí sigues siendo una persona muy especial.</div>
+        <div class="reason">Y hoy quería que algunas flores amarillas también encontraran el camino hasta ti.</div>
+        <div class="reason">Hay personas que, incluso en la distancia, siguen dejando recuerdos bonitos.</div>
+        <div class="reason">A veces un pequeño detalle también puede decir: me acordé de ti.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="content-card poem-card">
+      <p class="poem">
+        Hay distancias que cambian los días,<br>
+        y silencios que se sienten un poco más;<br>
+        porque a veces, sin buscarlo,<br>
+        termino recordando que ya no estás cerca.<br><br>
+
+        Extraño algunas conversaciones,<br>
+        tu manera particular de estar;<br>
+        y aunque la vida siga su camino,<br>
+        hay personas que uno recuerda con cariño<br>
+        incluso desde lejos.<br><br>
+
+        Hoy no pude dejar flores en tus manos,<br>
+        así que las dejé crecer aquí;<br>
+        porque aunque estés lejos,<br>
+        a veces todavía me acuerdo de ti.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="content-card center-card">
+      <h2>Antes de terminar...</h2>
+      <button class="main-button" id="secretButton">Una última cosita 💛</button>
+
+      <div class="secret-message" id="secretMessage">
+        <p>
+          Solo quería que supieras que te recuerdo con cariño,
+          que extraño algunas cosas de cuando estabas cerca
+          y que para mí sigues siendo alguien especial.
+        </p>
+        <p>
+          Ojalá estas flores digitales consigan, aunque sea por un momento,
+          sacarte una pequeña sonrisa.
+        </p>
+        <strong>Feliz día de las flores amarillas, Betsua. 🌻</strong>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="content-section advent-section" id="calendario">
+    <div class="content-card advent-card">
+      <span class="advent-kicker">21 de septiembre — 27 de octubre</span>
+      <h2>Un pequeño detalle para cada día 💛</h2>
+      <p class="advent-intro">
+        No tienes que abrir todo de una vez. La idea es que cada día
+        encuentres aquí una cosita nueva. Los días que todavía no llegan
+        seguirán guardando su sorpresa. 🌻
+      </p>
+
+      <div class="advent-month">
+        <h3>Septiembre</h3>
+        <div class="advent-grid" id="septemberCalendar"></div>
+      </div>
+
+      <div class="advent-month">
+        <h3>Octubre</h3>
+        <div class="advent-grid" id="octoberCalendar"></div>
+      </div>
+
+      <p class="advent-note">
+        Vuelve cuando quieras. Quizá mañana haya algo nuevo esperándote.
+      </p>
+    </div>
+  </section>
+
+  <div class="advent-modal" id="adventModal" aria-hidden="true">
+    <div class="advent-modal-backdrop" id="adventBackdrop"></div>
+    <article class="advent-modal-card" role="dialog" aria-modal="true" aria-labelledby="adventModalDate">
+      <button class="advent-close" id="adventClose" type="button" aria-label="Cerrar">×</button>
+      <div class="advent-modal-decor" id="adventModalDecor"></div>
+      <div class="advent-modal-flower">🌻</div>
+      <p class="advent-modal-date" id="adventModalDate"></p>
+      <figure class="advent-modal-figure hidden" id="adventModalFigure">
+        <img src="" alt="" class="advent-modal-image" id="adventModalImage">
+      </figure>
+      <div class="advent-illustration hidden" id="adventIllustration">
+        <div class="illustration-main" id="adventIllustrationMain">🐱</div>
+        <div class="illustration-caption" id="adventIllustrationCaption">Un pequeño detalle bonito para tu día.</div>
+      </div>
+      <div class="advent-modal-message" id="adventModalMessage"></div>
+    </article>
+  </div>
+
+<footer class="final-message">
+    <p>Con cariño, desde lejos.</p>
+    <span>— Christopher</span>
+    <small>21 · 09 · 2026</small>
+  </footer>
+
+  
+  <audio id="bgMusic" loop autoplay preload="auto" src="audio/jardin_amarillo.mp3"></audio>
+  <button class="music-control" id="musicControl" type="button" aria-label="Activar música">
+    ♫ Música
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

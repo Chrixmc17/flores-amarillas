@@ -1,0 +1,34 @@
+CÓMO VER CUÁNTAS VECES ENTRAN
+==============================
+
+Esta web está preparada para usar GoatCounter.
+
+IMPORTANTE:
+- GitHub Pages por sí solo no guarda un contador privado de visitas.
+- La analítica está puesta SOLO en index.html, así cada apertura de la portada
+  cuenta como una entrada y no como 3 visitas por navegar entre las páginas.
+- No puedes confirmar matemáticamente que una visita fue "Betsua".
+  Pero si compartes el enlace únicamente con ella, las entradas a ese enlace
+  son una buena señal de que fue abierto.
+
+PASOS:
+1. Crea una cuenta en https://www.goatcounter.com/
+2. Elige un nombre para tu sitio. Ejemplo: christopherflores
+3. Abre: js/analytics.js
+4. Busca:
+      const GOATCOUNTER_CODE = "";
+5. Déjalo así:
+      const GOATCOUNTER_CODE = "christopherflores";
+6. Guarda, sube el cambio a GitHub y listo.
+7. Entra a tu panel:
+      https://christopherflores.goatcounter.com/
+
+TRUCO PARA UN ENLACE QUE SOLO LE DARÁS A ELLA
+Después de publicar la web, puedes enviarle:
+https://TUUSUARIO.github.io/TUREPOSITORIO/?para=betsua
+
+GoatCounter incluye por defecto la ruta y el query del enlace en el pageview.
+Si ese enlace solo lo tiene ella, podrás distinguir esas aperturas de tus
+propias pruebas normales.
+
+No uses esta analítica para recopilar información personal sensible.

@@ -1,0 +1,124 @@
+FLORES AMARILLAS PARA BETSUA - V14
+=================================
+
+ESTRUCTURA
+
+index.html
+flores.html
+dedicatoria.html
+css/
+  style.css
+js/
+  script.js
+
+RECORRIDO
+
+1. index.html
+   Pantalla inicial.
+
+2. flores.html
+   Las flores amarillas crecen desde abajo.
+
+3. dedicatoria.html
+   Mensajes, versos, detalle final y firma.
+
+PARA GITHUB PAGES
+
+1. Crea un repositorio.
+2. Sube todos los archivos manteniendo las carpetas.
+3. index.html debe permanecer en la raíz.
+4. Ve a Settings > Pages.
+5. En Branch selecciona main y /root.
+6. Guarda y espera a que GitHub genere el enlace.
+
+V4
+- Textos más naturales.
+- Sin frases defensivas.
+- Sin usar "incomodar" o similares.
+- El tono transmite cariño, nostalgia y cercanía sin presión.
+- Los versos aparecen sin el título "poema".
+
+V5
+- Nueva escena de flores inspirada en el video de referencia.
+- Fondo nocturno con estrellas y estrellas fugaces.
+- Cinco ramos crecen de forma escalonada.
+- Cada ramo inicia con un pequeño punto de luz.
+- Crecen los tallos y hojas.
+- Las flores amarillas abren después.
+- Finalmente aparece el envoltorio y el lazo.
+- Incluye botón para repetir la animación.
+- Mantiene la dedicatoria de la V4.
+
+
+V6 - CALENDARIO DE DETALLES
+- Calendario tipo adviento dentro de dedicatoria.html.
+- Fechas: 21/09/2026 hasta 27/10/2026.
+- 37 días con 37 mensajes diferentes.
+- Los días futuros permanecen bloqueados automáticamente.
+- El día actual y los días anteriores se pueden abrir.
+- Cada fecha abre una tarjeta con su propio mensaje.
+- Los días ya abiertos quedan marcados en el navegador.
+- Funciona con HTML, CSS y JavaScript; no necesita base de datos.
+
+
+V7 - IMÁGENES Y CUMPLEAÑOS ESPECIAL
+- Se añadió soporte para mostrar imágenes dentro de los cuadritos del calendario.
+- El 21/09/2026 muestra la foto de la flor amarilla hecha a mano.
+- El 27/10/2026 tiene una tarjeta de cumpleaños especial.
+- El 27/10 también puede mostrar imagen y una decoración visual diferente.
+- Se añadió estilo especial para el último día del calendario.
+- Las imágenes se guardan en la carpeta img/.
+
+
+V8 - SECCIÓN DE 6 CARTELES
+- La sección "Solo quería que supieras esto" ahora tiene 6 mensajes.
+- En escritorio se muestran 3 carteles arriba y 3 abajo.
+- Se mantiene el diseño responsive para celular.
+
+
+V9 - PREVIEW COMPLETO DEL CALENDARIO
+- Se añadieron las anécdotas reales del 21/09 al 03/10.
+- Se añadieron imágenes nuevas dentro de la carpeta img/.
+- Del 04/10 al 26/10 se añadieron mensajes tiernos con ilustraciones animadas de gatitos, estrellas, flores y otros detalles bonitos.
+- El 27/10 se rediseñó como una tarjeta de cumpleaños más especial.
+- Esta versión está en modo PREVIEW: todos los días se pueden abrir sin bloqueo.
+- Más adelante se puede volver a activar el bloqueo automático por fecha.
+
+
+V10
+- Corrección del 28 de septiembre:
+  Christopher fue quien le puso "Mini Chris" al animalito por su carita seria.
+
+
+V11
+- Se quitaron los guiones largos del texto del 28 de septiembre.
+- Frase corregida: "cuando ves a alguien o a un animalito que necesita ayuda".
+
+
+V12 FINAL
+- El calendario volvió a quedar bloqueado por fecha.
+- La fecha se calcula en la zona horaria America/Lima (Perú).
+- Cada fecha se desbloquea el día correspondiente y queda disponible después.
+- Se corrigió el desbordamiento horizontal y el título cortado de flores.html.
+- Se añadió música instrumental original en audio/musica_betsua.mp3.
+- La música tiene un botón flotante y guarda la preferencia del navegador.
+- Se añadió js/analytics.js para activar GoatCounter cuando tengas tu código.
+- La analítica está solo en index.html para contar entradas al regalo sin
+  duplicarlas por navegar entre las tres páginas.
+
+
+V13
+- Se corrigió definitivamente el título cortado de flores.html:
+  la animación ahora conserva translateX(-50%) y mantiene el texto centrado.
+- Se reemplazó la música anterior por "Jardín Amarillo", una melodía instrumental
+  original más alegre, luminosa y relacionada con la temática de flores.
+- La web intenta reproducir la música automáticamente.
+- Si Chrome/Edge bloquea el autoplay con sonido, el primer toque/clic en cualquier
+  parte de la página la activa inmediatamente.
+
+
+V14
+- Se aumentó considerablemente la cantidad de ramos/flores en la animación.
+- Ahora la escena muestra muchas más flores repartidas por toda la pantalla.
+- Se ajustó el tiempo de aparición del botón "Seguir" para que salga después
+  de que florezcan los nuevos ramos extra.
