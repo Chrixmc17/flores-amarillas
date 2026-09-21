@@ -148,8 +148,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const mobile = window.innerWidth < 650;
+    const screenRatio = window.innerHeight / Math.max(window.innerWidth, 1);
+    const mobileScaleBoost = mobile
+      ? Math.min(1.25, 1 + Math.max(0, screenRatio - 1.55) * 0.35)
+      : 1;
 
-    const bouquets = mobile
+    let bouquets = mobile
       ? [
           {x:4,  scale:.40, delay:.10, z:3,  back:true},
           {x:14, scale:.48, delay:.30, z:4,  back:true},
@@ -175,6 +179,13 @@ document.addEventListener("DOMContentLoaded", () => {
           {x:92,  scale:.40, delay:2.60, z:3,  back:true}
         ];
 
+    if(mobile){
+      bouquets = bouquets.map(config => ({
+        ...config,
+        scale: +(config.scale * mobileScaleBoost).toFixed(3)
+      }));
+    }
+
     bouquets.forEach(config => {
       bouquetField.appendChild(makeBouquet(config));
     });
@@ -184,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
         continueBouquet.classList.remove("hidden");
         continueBouquet.classList.add("show");
       }
-    }, mobile ? 8400 : 8800);
+    }, mobile ? 6000 : 8800);
   }
 
   if(bouquetField){
