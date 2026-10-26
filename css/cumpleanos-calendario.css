@@ -1,23 +1,89 @@
-/* Regalo especial del 27 de octubre */
-.advent-day.birthday-gift-tile{background:linear-gradient(145deg,#fff4f9,#ffd4e5)!important;border:2px solid #e994b2!important;box-shadow:0 7px 24px rgba(201,58,112,.17)!important;position:relative;isolation:isolate;min-height:112px}
-.advent-day.birthday-gift-tile .day-number{color:#b03467!important}
-.advent-day.birthday-gift-tile .day-label{font-size:.63rem;color:#a63261;opacity:1;max-width:70%;font-weight:800}
-.advent-day.birthday-gift-tile .day-icon{top:35%;right:17%;width:44px;height:47px;animation:birthdayShake 2s ease-in-out infinite}
-.birthday-mini-gift{display:block;position:relative;width:42px;height:34px;background:linear-gradient(135deg,#e36797,#b72c68);border-radius:4px;box-shadow:0 5px 11px #b72c6840}
-.birthday-mini-gift .gift-ribbon-h{position:absolute;top:13px;left:0;width:100%;height:8px;background:#ffe6ad}
-.birthday-mini-gift .gift-ribbon-v{position:absolute;top:0;left:18px;width:7px;height:100%;background:#ffe6ad}
-.birthday-mini-gift .gift-bow-mini{position:absolute;left:10px;top:-22px;font-size:25px}
-@keyframes birthdayShake{0%,65%,100%{transform:rotate(0)}71%{transform:rotate(-12deg)}77%{transform:rotate(11deg)}83%{transform:rotate(-9deg)}89%{transform:rotate(8deg)}}
+/* El día 27 ES el regalo entero: papel rosa, cinta dorada, lazo y el número al centro. */
+.advent-day.birthday-gift-tile,
+.advent-day.birthday-gift-tile.locked{
+  position:relative;isolation:isolate;overflow:hidden;
+  min-height:118px;padding:0!important;border:2px solid #d95d93!important;
+  border-radius:19px!important;
+  background:linear-gradient(125deg,#f6a5c5 0%,#e46c9a 50%,#c93b78 100%)!important;
+  box-shadow:0 11px 23px rgba(171,56,105,.22)!important;
+  cursor:pointer;transform-origin:center bottom;
+  animation:birthdayPresentWiggle 3.4s ease-in-out infinite;
+}
 .advent-day.birthday-gift-tile.locked{cursor:default}
-.advent-day.birthday-gift-tile:not(.locked):hover{transform:translateY(-5px) scale(1.04)}
-.advent-modal-card.birthday-gift-modal{background:linear-gradient(145deg,#fff8fb,#ffe2ed)!important;border:2px solid #efbdd0;box-shadow:0 25px 75px #a7427050}
+.advent-day.birthday-gift-tile:before{
+  content:""!important;position:absolute!important;display:block!important;
+  left:calc(50% - 11px)!important;top:0!important;bottom:0!important;
+  width:22px!important;height:100%!important;
+  background:linear-gradient(90deg,#f0c77e,#fff3c8 47%,#dfaf65)!important;
+  border-radius:0!important;z-index:1!important;opacity:1!important;
+  transform:none!important;box-shadow:0 1px 8px #9f45764d;
+}
+.advent-day.birthday-gift-tile:after{
+  content:""!important;position:absolute!important;display:block!important;
+  inset:auto 0!important;top:calc(50% - 10px)!important;
+  width:100%!important;height:20px!important;border-radius:0!important;
+  background:linear-gradient(180deg,#ffecc0,#f0c782)!important;
+  z-index:1!important;opacity:1!important;
+}
+.advent-day.birthday-gift-tile .day-number{
+  position:absolute!important;top:49%!important;left:50%!important;right:auto!important;
+  width:65px;height:61px;display:grid!important;place-items:center;
+  transform:translate(-50%,-50%);
+  border-radius:50%;border:2px solid #fff6d7;
+  color:#fff!important;background:linear-gradient(155deg,#bc2c68,#9b2354);
+  font-family:Georgia,serif;font-size:2.4rem!important;line-height:1!important;
+  text-shadow:0 2px 6px #6c174d66;z-index:4!important;
+  box-shadow:0 4px 14px #77254860;
+}
+.advent-day.birthday-gift-tile .day-icon{
+  position:absolute!important;top:0!important;right:0!important;left:0!important;
+  width:auto!important;height:auto!important;text-align:center;z-index:5!important;
+  line-height:1.15!important;font-size:1.8rem!important;filter:drop-shadow(0 3px 2px #9b38683a);
+  animation:birthdayBowRock 2.6s ease-in-out infinite;
+}
+.advent-day.birthday-gift-tile .day-label{
+  position:absolute!important;left:7px!important;right:7px!important;bottom:5px!important;
+  max-width:none!important;width:auto!important;margin:0!important;padding:4px 2px!important;
+  border-radius:10px;background:rgba(144,29,78,.83);
+  text-align:center;color:#fff!important;font-size:.57rem!important;opacity:1!important;
+  line-height:1.15!important;font-weight:800!important;letter-spacing:.03em!important;
+  text-transform:uppercase!important;z-index:5!important;
+}
+.advent-day.birthday-gift-tile:not(.locked):hover{transform:translateY(-5px) scale(1.035)!important}
+.advent-day.birthday-gift-tile.birthday-preview{outline:3px dashed #a9477d;outline-offset:3px}
+.advent-day.birthday-gift-tile:focus-visible{outline:3px solid #8d215b;outline-offset:4px}
+@keyframes birthdayPresentWiggle{
+  0%,77%,100%{rotate:0deg}
+  81%{rotate:-3deg}
+  86%{rotate:3deg}
+  91%{rotate:-2deg}
+  96%{rotate:2deg}
+}
+@keyframes birthdayBowRock{
+  0%,100%{transform:rotate(0deg)}
+  50%{transform:rotate(-9deg)}
+}
+.advent-modal-card.birthday-gift-modal{
+  background:linear-gradient(145deg,#fff9fc,#ffe2ed)!important;
+  border:2px solid #efbdd0!important;
+  box-shadow:0 25px 75px #a7427050!important;
+}
 .advent-modal-card.birthday-gift-modal .advent-modal-flower{font-size:3.8rem}
 .advent-modal-card.birthday-gift-modal .advent-modal-date{color:#ae456e;font-weight:800}
 .birthday-modal-surprise{text-align:center;padding:0 8px 12px}
-.birthday-modal-surprise h3{font-family:Georgia,serif;color:#a53465;font-size:clamp(1.6rem,5vw,2.15rem);line-height:1.12;margin:18px 0 12px}
+.birthday-modal-surprise h3{
+  font-family:Georgia,serif;color:#a53465;font-size:clamp(1.6rem,5vw,2.15rem);
+  line-height:1.12;margin:18px 0 12px;
+}
 .birthday-modal-surprise p{color:#7f5367;line-height:1.7;font-size:1rem}
 .birthday-modal-roses{font-size:2.4rem}
-.birthday-modal-link{display:block;margin:23px auto;background:linear-gradient(135deg,#ba3266,#e16a95);color:white;text-decoration:none;border-radius:100px;padding:16px 15px;font-weight:800;box-shadow:0 12px 25px #af36654d;transition:transform .2s}
+.birthday-modal-link{
+  display:block;margin:23px auto;padding:16px 15px;color:#fff;text-decoration:none;
+  background:linear-gradient(135deg,#ba3266,#e16a95);border-radius:100px;font-weight:800;
+  box-shadow:0 12px 25px #af36654d;transition:transform .2s;
+}
 .birthday-modal-link:hover{transform:translateY(-3px)}
 .birthday-modal-surprise small{color:#a16d84}
-@media(prefers-reduced-motion:reduce){.advent-day.birthday-gift-tile .day-icon{animation:none}}
+@media(prefers-reduced-motion:reduce){
+ .advent-day.birthday-gift-tile,.advent-day.birthday-gift-tile .day-icon{animation:none!important}
+}
