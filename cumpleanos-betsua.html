@@ -151,8 +151,22 @@
     @media(prefers-reduced-motion:reduce){.birthday-envelope,.teddy.celebrating .bear-heart,.teddy.celebrating .bear-head,.teddy.celebrating .bear-left-arm,.teddy.celebrating .bear-right-arm,.bear-floating-heart{animation:none!important;transition:none!important}}
 
   </style>
+  <link rel="stylesheet" href="css/betsua-magia.css?v=20261026-special1">
 </head>
 <body>
+  <div class="magic-entry" id="magicWelcome" role="dialog" aria-modal="true" aria-label="Sorpresa de cumpleaños para Betsua">
+    <span class="magic-entry-decoration one" aria-hidden="true">🌹</span>
+    <span class="magic-entry-decoration two" aria-hidden="true">🎈</span>
+    <div class="magic-entry-card">
+      <div class="magic-entry-icon" aria-hidden="true"><span>💝</span></div>
+      <div class="magic-entry-kicker">Una sorpresa, solo para ti</div>
+      <h2>Hoy es tu día,<em>Betsua ♡</em></h2>
+      <p>Hay un pequeño mundo rosado que te estaba esperando… con flores, deseos y una carta especial.</p>
+      <button type="button" class="magic-entry-action" id="magicEnter">Entrar a mi sorpresa ✨</button>
+      <span class="magic-entry-hint">Un detalle hecho con mucho cariño</span>
+    </div>
+  </div>
+  <div id="magicConfetti" class="magic-wish-confetti" aria-hidden="true"></div>
   <div class="sky" aria-hidden="true"></div>
   <div class="petal-field" id="petals" aria-hidden="true"></div>
   <div class="confetti" id="confetti" aria-hidden="true"></div>
@@ -187,6 +201,12 @@
     </div>
   </header>
 
+  <div class="magic-ticker" aria-hidden="true"><div class="magic-ticker-inner">
+    <span>✦ Feliz cumpleaños Betsua ✦ Un día para sonreír ✦ 🌹</span>
+    <span>✦ Hoy mereces cosas bonitas ✦ 💗 ✦ Con mucho cariño</span>
+    <span>✦ Feliz cumpleaños Betsua ✦ Un día para sonreír ✦ 🌹</span>
+    <span>✦ Hoy mereces cosas bonitas ✦ 💗 ✦ Con mucho cariño</span>
+  </div></div>
   <main>
     <section class="section gift-section" id="tu-regalo">
       <div class="section-heading">
@@ -232,6 +252,52 @@
       </article>
     </section>
 
+    <section class="magic-section magic-memories" id="recuerdos">
+      <div class="magic-section-title">
+        <small>Tres pequeñas postales</small>
+        <h2>Recuerdos que guardo con cariño</h2>
+        <p>Hay detalles sencillos que se quedan en nuestra memoria. Toca cada postal para descubrir qué dice.</p>
+      </div>
+      <div class="magic-memories-grid">
+        <article class="magic-memory">
+          <button type="button" aria-pressed="false" aria-label="Descubrir recuerdo 1"><span class="magic-memory-inner">
+            <span class="magic-memory-face"><span class="magic-memory-art">☕</span><span class="magic-memory-name">Pequeñas conversaciones</span><span class="magic-memory-hint">Toca para girar la postal ♡</span></span>
+            <span class="magic-memory-face magic-memory-back"><span class="magic-memory-name">Esos ratitos</span><p>Me gustaba conversar contigo, incluso de las cosas más sencillas. Son recuerdos que sigo guardando con una sonrisa.</p><small>Toca otra vez para volver ♡</small></span>
+          </span></button>
+        </article>
+        <article class="magic-memory">
+          <button type="button" aria-pressed="false" aria-label="Descubrir recuerdo 2"><span class="magic-memory-inner">
+            <span class="magic-memory-face"><span class="magic-memory-art">🍓</span><span class="magic-memory-name">Un frappé de fresa</span><span class="magic-memory-hint">Toca para girar la postal ♡</span></span>
+            <span class="magic-memory-face magic-memory-back"><span class="magic-memory-name">Un detalle dulce</span><p>Me alegró saber que aquel frappé de fresa te había gustado. A veces un detalle pequeño puede hacer especial todo un día.</p><small>Toca otra vez para volver ♡</small></span>
+          </span></button>
+        </article>
+        <article class="magic-memory">
+          <button type="button" aria-pressed="false" aria-label="Descubrir recuerdo 3"><span class="magic-memory-inner">
+            <span class="magic-memory-face"><span class="magic-memory-art">🎀</span><span class="magic-memory-name">Haberte conocido</span><span class="magic-memory-hint">Toca para girar la postal ♡</span></span>
+            <span class="magic-memory-face magic-memory-back"><span class="magic-memory-name">Gracias por coincidir</span><p>Entre tantas personas y tantos caminos, me alegra haber coincidido contigo. Te deseo de corazón muchas cosas bonitas.</p><small>Toca otra vez para volver ♡</small></span>
+          </span></button>
+        </article>
+      </div>
+    </section>
+
+    <section class="magic-section magic-rose-section" id="rosas">
+      <div class="magic-section-title">
+        <small>Un jardín para ti</small>
+        <h2>Cinco rosas, cinco buenos deseos</h2>
+        <p>Toca cada rosa roja. Detrás de todas ellas dejé algo bonito para ti.</p>
+      </div>
+      <div class="magic-rose-room">
+        <div class="magic-rose-row">
+          <button type="button" class="magic-rose-button" aria-label="Descubrir deseo de la rosa 1"><span class="magic-rose-icon">🌹</span></button>
+          <button type="button" class="magic-rose-button" aria-label="Descubrir deseo de la rosa 2"><span class="magic-rose-icon">🌹</span></button>
+          <button type="button" class="magic-rose-button" aria-label="Descubrir deseo de la rosa 3"><span class="magic-rose-icon">🌹</span></button>
+          <button type="button" class="magic-rose-button" aria-label="Descubrir deseo de la rosa 4"><span class="magic-rose-icon">🌹</span></button>
+          <button type="button" class="magic-rose-button" aria-label="Descubrir deseo de la rosa 5"><span class="magic-rose-icon">🌹</span></button>
+        </div>
+        <p class="magic-rose-message" id="magicRoseLine" aria-live="polite">Este pequeño ramo está esperando que descubras sus secretos. ♡</p>
+        <div class="magic-rose-counter" id="magicRoseCount">0 de 5 rosas descubiertas</div>
+      </div>
+    </section>
     <section class="section chapter" id="deseos">
       <div class="section-heading">
         <span class="overline">Tres deseos para ti</span>
@@ -245,6 +311,31 @@
       </div>
     </section>
 
+    <section class="magic-section magic-surprise-cake" id="pastel">
+      <div class="magic-section-title">
+        <small>Es hora de celebrar</small>
+        <h2>Pide un deseo, Betsua 🎂</h2>
+        <p>Hice un pastel para ti. Toca las velitas y apágalas una por una; al terminar, habrá un último deseo.</p>
+      </div>
+      <div class="magic-cake-card">
+        <div class="magic-cake" role="group" aria-label="Pastel de cumpleaños con cinco velitas que puedes apagar">
+          <div class="magic-cake-shadow"></div><div class="magic-cake-plate"></div>
+          <div class="magic-cake-base"></div><div class="magic-cake-frosting"></div>
+          <div class="magic-cake-decoration" aria-hidden="true">♡ ♡ ♡</div>
+          <div class="magic-candles">
+            <button class="magic-candle" type="button" aria-label="Apagar velita 1" aria-pressed="false"><span class="magic-flame"></span></button>
+            <button class="magic-candle" type="button" aria-label="Apagar velita 2" aria-pressed="false"><span class="magic-flame"></span></button>
+            <button class="magic-candle" type="button" aria-label="Apagar velita 3" aria-pressed="false"><span class="magic-flame"></span></button>
+            <button class="magic-candle" type="button" aria-label="Apagar velita 4" aria-pressed="false"><span class="magic-flame"></span></button>
+            <button class="magic-candle" type="button" aria-label="Apagar velita 5" aria-pressed="false"><span class="magic-flame"></span></button>
+          </div>
+        </div>
+        <p class="magic-cake-message" id="magicCakeLine" aria-live="polite">Pide un deseo y toca las cinco velitas para apagarlas. 🎂</p>
+        <p class="magic-cake-progress" id="magicCandleCount">0 de 5 velitas apagadas</p>
+        <p class="magic-complete" id="magicFinalWish" aria-live="polite"></p>
+        <button type="button" class="magic-cake-reset" id="magicCakeReset">Volver a encender las velitas ✨</button>
+      </div>
+    </section>
     <section class="closing">
       <button class="teddy" id="birthdayBear" type="button" aria-label="Toca el osito para hacer latir su corazón" aria-describedby="bearMessage">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 250" width="230" height="221" aria-hidden="true">
@@ -266,10 +357,19 @@
         </svg>
       </button>
       <p class="bear-hint" id="bearMessage" aria-live="polite">Toca al osito: su corazón late para ti. 💗</p>
+      <p class="magic-bear-extra" id="magicBearPhrase" aria-live="polite">A veces los abrazos también pueden viajar en forma de pequeños detalles. 🧸</p>
       <span class="overline">Hasta el último pétalo</span>
       <h2>Que seas muy feliz, Betsua.</h2>
       <p>No importa cuánta distancia haya: mis mejores deseos para ti son sinceros. Que este 27 de octubre esté lleno de momentos que quieras recordar.</p>
-      <a href="dedicatoria.html#calendario">Volver al calendario de flores amarillas 🌻</a>
+      <div class="magic-secret">
+        <button type="button" id="magicSecretToggle" class="magic-secret-toggle" aria-expanded="false" aria-controls="magicSecretPanel">Una cosita más… 💌</button>
+        <div class="magic-secret-panel" id="magicSecretPanel">
+          Si esta sorpresa logró hacerte sonreír aunque sea un poquito, para mí ya fue un regalo enorme.
+          No hace falta que digas nada: solo deseo que tengas un cumpleaños bonito,
+          tranquilo y lleno de cosas que te hagan feliz. ♡
+        </div>
+      </div>
+      <p><a href="dedicatoria.html#calendario">Volver al calendario de flores amarillas 🌻</a></p>
     </section>
   </main>
   <button class="birthday-music" type="button" id="birthdayMusic" aria-pressed="false" aria-label="Activar música de cumpleaños suave">♫ Música suave ♪</button>
@@ -494,5 +594,6 @@
       });
     })();
   </script>
+  <script src="js/betsua-magia.js?v=20261026-special1"></script>
 </body>
 </html>
