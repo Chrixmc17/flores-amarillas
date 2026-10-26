@@ -245,6 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if(septemberCalendar && octoberCalendar){
     const previewUnlockAll = false;
+    const birthdayPreview = new URLSearchParams(window.location.search).get("preview27") === "1";
 
     const dailyMessages = {
   "2026-09-21": "Hoy empieza este pequeño calendario y quise que el primer detalle fuera una de las flores que hice con mis manos. No es perfecta, pero sí está hecha con mucho cariño. <strong>Ojalá este comienzo te saque una pequeña sonrisa.</strong> 🌻",
@@ -600,33 +601,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function openModal(date, key){
       resetVisualZones();
-
       modalDate.textContent = prettyDate(date);
-      modalMessage.innerHTML = dailyMessages[key] || "Hoy solo quería dejarte algo bonito por aquí. 🌻";
-
-      if(dailyImages[key] && modalFigure && modalImage){
-        modalImage.src = dailyImages[key].src;
-        modalImage.alt = dailyImages[key].alt;
-        modalFigure.classList.remove("hidden");
-        if(modalCard) modalCard.classList.add("image-day");
-      } else {
-        applyIllustration(key);
-      }
-
-      if(specialDays[key] && modalCard){
-        modalCard.classList.add(specialDays[key]);
-        if(key === "2026-10-27"){
-          launchBirthdayDecor();
+      if(key === "2026-10-27"){
+        modalDate.textContent = birthdayPreview && currentPeruDateKey() < "2026-10-27"
+          ? "VISTA PREVIA · 27 de octubre 🎁"
+          : "Feliz cumpleaños, Betsua · 27 de octubre";
+        modalMessage.innerHTML = [
+          '<div class="birthday-present-message">',
+          '<div class="birthday-present-flowers" aria-hidden="true">🌹 🎀 🌹</div>',
+          '<h3>Una sorpresa especialmente para ti, Betsua</h3>',
+          '<p>Este último día guarda algo distinto: preparé un pequeño regalo para celebrar tu cumpleaños, aunque estemos lejos.</p>',
+          '<a href="cumpleanos-betsua.html" class="birthday-present-link">Abrir mi sorpresa de cumpleaños 💗</a>',
+          '<small>Con mucho cariño, Christopher ♡</small>',
+          '</div>'
+        ].join("");
+        if(modalCard) modalCard.classList.add("birthday-present-dialog");
+      }else{
+        modalMessage.innerHTML = dailyMessages[key] || "Hoy solo quería dejarte algo bonito por aquí. 🌻";
+        if(dailyImages[key] && modalFigure && modalImage){
+          modalImage.src = dailyImages[key].src;
+          modalImage.alt = dailyImages[key].alt;
+          modalFigure.classList.remove("hidden");
+          if(modalCard) modalCard.classList.add("image-day");
+        }else{
+          applyIllustration(key);
+        }
+        if(specialDays[key] && modalCard){
+          modalCard.classList.add(specialDays[key]);
         }
       }
-
       modal.classList.add("show");
-      modal.setAttribute("aria-hidden", "false");
+      modal.setAttribute("aria-hidden","false");
       document.body.classList.add("modal-open");
-      saveOpened(key);
-
-      const btn = document.querySelector(`[data-date="${key}"]`);
-      if(btn) btn.classList.add("opened");
+      if(!(key==="2026-10-27" && birthdayPreview && currentPeruDateKey()<"2026-10-27")){
+        saveOpened(key);
+        const btn = document.querySelector('[data-date="'+key+'"]');
+        if(btn) btn.classList.add("opened");
+      }
     }
 
     function closeModal(){
@@ -636,45 +647,53 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function createDayButton(date){
-      const key = localDateKey(date);
-      const peruTodayKey = currentPeruDateKey();
-      const locked = previewUnlockAll ? false : key > peruTodayKey;
-      const isToday = key === peruTodayKey;
-      const opened = getOpened().includes(key);
-
-      const icon =
-        locked ? "🔒" :
-        dailyImages[key] ? "🖼️" :
-        dailyIllustrations[key] ? (dailyIllustrations[key].icon || "💛") :
-        "🌻";
-
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className =
-        "advent-day" +
-        (locked ? " locked" : "") +
-        (isToday ? " today" : "") +
-        (opened ? " opened" : "") +
-        (dailyImages[key] ? " has-image" : "");
-      btn.dataset.date = key;
-
-      btn.innerHTML = `
-        <span class="day-number">${date.getDate()}</span>
-        <span class="day-label">${isToday ? "hoy" : monthNames[date.getMonth()]}</span>
-        <span class="day-icon">${icon}</span>
-      `;
-
-      if(locked){
-        btn.title = `Se abrirá el ${date.getDate()} de ${monthNames[date.getMonth()]}`;
-        btn.setAttribute(
-          "aria-label",
-          `${prettyDate(date)}. Este detalle todavía está bloqueado.`
-        );
+      const key=localDateKey(date);
+      const today=currentPeruDateKey();
+      const isBirthday=key==="2026-10-27";
+      const simulate=isBirthday && birthdayPreview && today<"2026-10-27";
+      const locked=previewUnlockAll?false:(key>today && !simulate);
+      const isToday=key===today;
+      const opened=getOpened().includes(key);
+      const icon = locked?"🔒":dailyImages[key]?"🖼️":dailyIllustrations[key]?
+        (dailyIllustrations[key].icon||"💛"):"🌻";
+      const btn=document.createElement("button");
+      btn.type="button";
+      btn.className="advent-day"+
+        (locked?" locked":"")+
+        (isToday?" today":"")+
+        (opened?" opened":"")+
+        (!isBirthday && dailyImages[key]?" has-image":"")+
+        (isBirthday?" birthday-present":"")+
+        (simulate?" birthday-present-preview":"");
+      btn.dataset.date=key;
+      if(isBirthday){
+        btn.innerHTML=[
+          '<span class="birthday-present-paper" aria-hidden="true"></span>',
+          '<span class="birthday-present-ribbon-horizontal" aria-hidden="true"></span>',
+          '<span class="birthday-present-ribbon-vertical" aria-hidden="true"></span>',
+          '<span class="birthday-present-bow" aria-hidden="true"><i></i><i></i></span>',
+          '<span class="birthday-present-number">27</span>',
+          '<span class="birthday-present-caption">'+
+            (simulate?"VISTA DE PRUEBA":locked?"PRÓXIMAMENTE":"ÁBREME")+
+          '</span>'
+        ].join("");
+        btn.setAttribute("aria-label",locked?
+          "Regalo de cumpleaños del 27: aún no se puede abrir":
+          "Abrir regalo de cumpleaños de Betsua, día 27");
+        if(locked)btn.title="Se abre el 27 de octubre (hora de Perú)";
       }else{
-        btn.setAttribute("aria-label", `Abrir detalle del ${prettyDate(date)}`);
-        btn.addEventListener("click", () => openModal(date, key));
+        btn.innerHTML =
+          '<span class="day-number">'+date.getDate()+'</span>'+
+          '<span class="day-label">'+(isToday?"hoy":monthNames[date.getMonth()])+'</span>'+
+          '<span class="day-icon">'+icon+'</span>';
+        btn.setAttribute("aria-label",locked?
+          prettyDate(date)+". Este detalle todavía está bloqueado.":
+          "Abrir detalle del "+prettyDate(date));
+        if(locked)btn.title="Se abrirá el "+date.getDate()+" de "+monthNames[date.getMonth()];
       }
-
+      if(!locked){
+        btn.addEventListener("click",()=>openModal(date,key));
+      }
       return btn;
     }
 
@@ -686,6 +705,15 @@ document.addEventListener("DOMContentLoaded", () => {
       octoberCalendar.appendChild(createDayButton(new Date(2026, 9, day)));
     }
 
+    if(birthdayPreview && currentPeruDateKey()<"2026-10-27"){
+      const note=document.createElement("p");
+      note.className="birthday-preview-note";
+      note.textContent="Vista de prueba del 27: el enlace normal continuará cerrado hasta mañana.";
+      octoberCalendar.parentElement.appendChild(note);
+      // Mostrar la apertura sin tener que pulsar un día bloqueado.
+      window.setTimeout(()=>openModal(new Date(2026,9,27),"2026-10-27"),450);
+    }
+    
     modalClose.addEventListener("click", closeModal);
     modalBackdrop.addEventListener("click", closeModal);
 
