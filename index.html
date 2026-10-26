@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <script>
+    // Mantener limpia la dirección al abrir un enlace desde redes o chats.
+    (() => {
+      const url = new URL(window.location.href);
+      let changed = false;
+      for (const key of [...url.searchParams.keys()]) {
+        if (/^utm_/i.test(key)) {
+          url.searchParams.delete(key);
+          changed = true;
+        }
+      }
+      if (changed) {
+        window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash);
+      }
+    })();
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Para Betsua 💛</title>
