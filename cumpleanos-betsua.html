@@ -364,7 +364,7 @@
       });
 
       // Música instrumental de cumpleaños creada con notas suaves.
-      // No se reproduce sin consentimiento: la persona la activa con el botón.
+      // Intenta iniciar al cargar; los navegadores pueden requerir un primer toque.
       const musicButton=document.getElementById("birthdayMusic");
       const AudioEngine=window.AudioContext||window.webkitAudioContext;
       let audioCtx=null, audioMaster=null, musicInterval=null, nextAt=0, noteIndex=0;
@@ -404,44 +404,93 @@
           nextAt+=d+(noteIndex===0?1.2:0);
         }
       }
-      musicButton.addEventListener("click",async()=>{
+      let musicRequested=true;
+      let musicBlocked=false;
+      async function startBirthdayMusic(){
         if(!AudioEngine){
           musicButton.textContent="♫ Audio no disponible";
           musicButton.disabled=true;
-          return;
+          return false;
         }
-        if(musicInterval){
-          window.clearInterval(musicInterval);musicInterval=null;
-          audioMaster.gain.cancelScheduledValues(audioCtx.currentTime);
-          audioMaster.gain.setTargetAtTime(.0001,audioCtx.currentTime,.25);
-          musicButton.setAttribute("aria-pressed","false");
-          musicButton.textContent="♫ Música suave ♪";
-          musicButton.setAttribute("aria-label","Activar música suave de cumpleaños");
-          track("/eventos-betsua/musica-pausada","Betsua · Música pausada");
-          return;
-        }
+        if(musicInterval)return true;
         if(!audioCtx){
           audioCtx=new AudioEngine();
-          audioMaster=audioCtx.createGain();audioMaster.gain.value=.0001;
+          audioMaster=audioCtx.createGain();
+          audioMaster.gain.value=.0001;
           audioMaster.connect(audioCtx.destination);
         }
         try{
+          // El navegador puede dejar este contexto suspendido hasta que la persona toque la pantalla.
           await audioCtx.resume();
-          // Se reinicia la melodía al activar para no programar notas anteriores.
-          noteIndex=0;
-          nextAt=audioCtx.currentTime+.08;
+          if(audioCtx.state!=="running")throw new Error("El navegador exige una interacción");
+          noteIndex=0;nextAt=audioCtx.currentTime+.08;
           audioMaster.gain.cancelScheduledValues(audioCtx.currentTime);
           audioMaster.gain.setValueAtTime(.0001,audioCtx.currentTime);
-          audioMaster.gain.linearRampToValueAtTime(.095,audioCtx.currentTime+1.8);
+          audioMaster.gain.linearRampToValueAtTime(.075,audioCtx.currentTime+2);
           scheduleNotes();
           musicInterval=window.setInterval(scheduleNotes,240);
           musicButton.setAttribute("aria-pressed","true");
           musicButton.textContent="♫ Pausar música";
           musicButton.setAttribute("aria-label","Pausar música de cumpleaños");
+          musicBlocked=false;
           track("/eventos-betsua/musica-activada","Betsua · Música activada");
+          return true;
         }catch(e){
-          musicButton.textContent="♫ Música no disponible";
+          musicBlocked=true;
+          musicButton.textContent="♫ Toca para escuchar ♪";
+          musicButton.setAttribute("aria-pressed","false");
+          return false;
         }
+      }
+      function stopBirthdayMusic(){
+        if(musicInterval){
+          window.clearInterval(musicInterval);
+          musicInterval=null;
+        }
+        if(audioCtx && audioMaster){
+          audioMaster.gain.cancelScheduledValues(audioCtx.currentTime);
+          audioMaster.gain.setTargetAtTime(.0001,audioCtx.currentTime,.18);
+        }
+        musicRequested=false;
+        musicButton.setAttribute("aria-pressed","false");
+        musicButton.textContent="♫ Música suave ♪";
+        musicButton.setAttribute("aria-label","Activar música suave de cumpleaños");
+        track("/eventos-betsua/musica-pausada","Betsua · Música pausada");
+      }
+      musicButton.addEventListener("click",()=>{
+        if(musicInterval){stopBirthdayMusic();return;}
+        musicRequested=true;
+        void startBirthdayMusic();
+      });
+      // Primero intentamos reproducir al entrar. El sonido automático depende del navegador.
+      // Si se bloquea, iniciamos en la primera interacción; jamás anulamos una pausa voluntaria.
+      // No se deja una promesa de resume pendiente que impida el primer toque.
+      function tryAutoplay(){
+        if(!AudioEngine||audioCtx)return;
+        audioCtx=new AudioEngine();
+        audioMaster=audioCtx.createGain();
+        audioMaster.gain.value=.0001;
+        audioMaster.connect(audioCtx.destination);
+        if(audioCtx.state==="running"){
+          void startBirthdayMusic();
+        }else{
+          musicBlocked=true;
+          musicButton.textContent="♫ Toca para escuchar ♪";
+        }
+      }
+      if(document.readyState==="complete")tryAutoplay();
+      else window.addEventListener("load",tryAutoplay,{once:true});
+      document.addEventListener("pointerdown",event=>{
+        if(!musicRequested||musicInterval)return;
+        // El clic de música tiene su propio manejador; evitamos dos inicios simultáneos.
+        if(event.target.closest && event.target.closest("#birthdayMusic"))return;
+        if(musicBlocked || (audioCtx && audioCtx.state==="suspended")){
+          void startBirthdayMusic();
+        }
+      });
+      document.addEventListener("keydown",event=>{
+        if(!musicRequested||musicInterval||event.target.id==="birthdayMusic")return;
+        if(event.key==="Enter"||event.key===" ")void startBirthdayMusic();
       });
     })();
   </script>
