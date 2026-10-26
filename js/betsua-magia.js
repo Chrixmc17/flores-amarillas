@@ -129,11 +129,12 @@
   const bear=one("birthdayBear");
   const bearPhrase=one("magicBearPhrase");
   const phrases=[
-    "¡Un abrazo suave desde aquí hasta donde estés! 🧸",
-    "Que hoy te regalen muchas sonrisas, Betsua. 🌷",
-    "Este osito tiene un corazón lleno de buenos deseos. 💗",
-    "Que tengas días tranquilos y sueños muy bonitos. ✨",
-    "Un cariñito extra solo para ti. 🎀"
+    "¡Sorpresa! Este osito se puso su mejor moño para tu cumpleaños. 🧸🎀",
+    "Un abrazo suave y un latido de cariño especialmente para ti. 💗",
+    "Que hoy tengas tanta alegría como corazones puede regalar este osito. 🌹",
+    "Si la distancia pudiera abrazar, te mandaría este abrazito. ♡",
+    "Pide un deseo: que nunca te falten calma, sonrisas y momentos bonitos. ✨",
+    "¡Otro latidito más! Que tu día se llene de ternura y felicidad. 💝"
   ];
   let bearClicks=0;
   if(bear&&bearPhrase){
