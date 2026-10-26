@@ -87,3 +87,102 @@
 @media(prefers-reduced-motion:reduce){
  .advent-day.birthday-gift-tile,.advent-day.birthday-gift-tile .day-icon{animation:none!important}
 }
+
+
+/* Corrección 27: el calendario principal dibuja .birthday-present-*.
+   Estos son los elementos reales del regalo: deben quedar sobre las cintas. */
+.advent-day.birthday-gift-tile .birthday-present-paper,
+.advent-day.birthday-gift-tile .birthday-present-ribbon-horizontal,
+.advent-day.birthday-gift-tile .birthday-present-ribbon-vertical {
+  display:none!important; /* Las cintas ya están dibujadas con ::before y ::after */
+}
+.advent-day.birthday-gift-tile .birthday-present-number {
+  position:absolute!important;
+  display:grid!important;
+  place-items:center!important;
+  width:59px!important;
+  height:59px!important;
+  top:49%!important;
+  left:50%!important;
+  right:auto!important;
+  bottom:auto!important;
+  transform:translate(-50%,-50%)!important;
+  background:linear-gradient(140deg,#bc2c69,#90214c)!important;
+  border:2px solid #fff1cf!important;
+  border-radius:50%!important;
+  color:#fff!important;
+  font:700 2.15rem/1 Georgia,serif!important;
+  text-shadow:0 2px 6px rgba(81,12,44,.38)!important;
+  box-shadow:0 3px 12px rgba(112,25,68,.36)!important;
+  opacity:1!important;
+  z-index:7!important;
+}
+.advent-day.birthday-gift-tile .birthday-present-caption {
+  position:absolute!important;
+  display:block!important;
+  left:7px!important;
+  right:7px!important;
+  bottom:5px!important;
+  top:auto!important;
+  width:auto!important;
+  max-width:none!important;
+  padding:4px 3px!important;
+  margin:0!important;
+  border-radius:15px!important;
+  background:rgba(134,26,77,.92)!important;
+  font:800 .60rem/1.14 "Segoe UI",Arial,sans-serif!important;
+  letter-spacing:.02em!important;
+  color:white!important;
+  text-transform:uppercase!important;
+  text-align:center!important;
+  opacity:1!important;
+  z-index:8!important;
+}
+.advent-day.birthday-gift-tile .birthday-present-bow {
+  position:absolute!important;
+  display:block!important;
+  width:54px!important;
+  height:32px!important;
+  top:1px!important;
+  left:50%!important;
+  right:auto!important;
+  bottom:auto!important;
+  transform:translateX(-50%)!important;
+  z-index:9!important;
+  animation:birthdayBowRock 2.6s ease-in-out infinite;
+  pointer-events:none;
+}
+.advent-day.birthday-gift-tile .birthday-present-bow i {
+  position:absolute!important;
+  display:block!important;
+  width:27px!important;
+  height:20px!important;
+  border:6px solid #f9d98a!important;
+  border-radius:75% 18% 75% 25%!important;
+  background:#df5c91!important;
+  top:2px!important;
+  opacity:1!important;
+  box-shadow:0 3px 6px rgba(119,35,81,.2)!important;
+}
+.advent-day.birthday-gift-tile .birthday-present-bow i:first-child {
+  left:0!important;
+  transform:rotate(28deg)!important;
+}
+.advent-day.birthday-gift-tile .birthday-present-bow i:last-child {
+  right:0!important;
+  transform:scaleX(-1) rotate(28deg)!important;
+}
+.advent-day.birthday-gift-tile .birthday-present-bow:after {
+  content:"";
+  position:absolute;
+  left:calc(50% - 8px);
+  top:11px;
+  width:16px;
+  height:14px;
+  background:#ffe8ae;
+  border-radius:50%;
+  box-shadow:0 2px 4px rgba(93,29,56,.22);
+}
+@media (prefers-reduced-motion:reduce) {
+  .advent-day.birthday-gift-tile .birthday-present-bow{animation:none!important}
+}
