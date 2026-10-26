@@ -16,8 +16,7 @@
     const day=grid.querySelector('[data-date="2026-10-27"]');
     if(!day)return;
 
-    // Este enlace sirve para ensayar la apertura antes del cumpleaños.
-    // No es un sistema privado con contraseña; no compartir el enlace de prueba.
+    // Vista previa sin contraseña: únicamente para compartir al autor, no es acceso seguro.
     const preview=new URLSearchParams(location.search).get("preview27")==="1";
     const waiting=peruDate()<birthday;
     const previewActive=preview && waiting;
@@ -76,7 +75,7 @@
       }
     }
 
-    // Captura el clic antes de la lógica general, también si el día sigue bloqueado.
+    // Captura el clic antes de la lógica del calendario, incluso si el día está bloqueado.
     grid.addEventListener("click",event=>{
       const target=event.target instanceof Element?event.target.closest('[data-date="2026-10-27"]'):null;
       if(!target)return;
@@ -85,6 +84,16 @@
       if(peruDate()<birthday && !preview)return;
       openBirthday();
     },true);
+
+    // En el enlace de simulación abrimos la ventana directamente.
+    // No guardamos el día como abierto durante la prueba.
+    if(previewActive){
+      const tip=document.createElement("p");
+      tip.className="birthday-preview-tip";
+      tip.textContent="Vista de prueba: así aparecerá la sorpresa del día 27. El calendario normal sigue cerrado hasta mañana.";
+      grid.parentElement.insertBefore(tip,grid);
+      window.setTimeout(()=>openBirthday(),550);
+    }
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);
   else init();
