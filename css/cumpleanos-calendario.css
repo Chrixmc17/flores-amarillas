@@ -1,0 +1,23 @@
+/* Regalo especial del 27 de octubre */
+.advent-day.birthday-gift-tile{background:linear-gradient(145deg,#fff4f9,#ffd4e5)!important;border:2px solid #e994b2!important;box-shadow:0 7px 24px rgba(201,58,112,.17)!important;position:relative;isolation:isolate;min-height:112px}
+.advent-day.birthday-gift-tile .day-number{color:#b03467!important}
+.advent-day.birthday-gift-tile .day-label{font-size:.63rem;color:#a63261;opacity:1;max-width:70%;font-weight:800}
+.advent-day.birthday-gift-tile .day-icon{top:35%;right:17%;width:44px;height:47px;animation:birthdayShake 2s ease-in-out infinite}
+.birthday-mini-gift{display:block;position:relative;width:42px;height:34px;background:linear-gradient(135deg,#e36797,#b72c68);border-radius:4px;box-shadow:0 5px 11px #b72c6840}
+.birthday-mini-gift .gift-ribbon-h{position:absolute;top:13px;left:0;width:100%;height:8px;background:#ffe6ad}
+.birthday-mini-gift .gift-ribbon-v{position:absolute;top:0;left:18px;width:7px;height:100%;background:#ffe6ad}
+.birthday-mini-gift .gift-bow-mini{position:absolute;left:10px;top:-22px;font-size:25px}
+@keyframes birthdayShake{0%,65%,100%{transform:rotate(0)}71%{transform:rotate(-12deg)}77%{transform:rotate(11deg)}83%{transform:rotate(-9deg)}89%{transform:rotate(8deg)}}
+.advent-day.birthday-gift-tile.locked{cursor:default}
+.advent-day.birthday-gift-tile:not(.locked):hover{transform:translateY(-5px) scale(1.04)}
+.advent-modal-card.birthday-gift-modal{background:linear-gradient(145deg,#fff8fb,#ffe2ed)!important;border:2px solid #efbdd0;box-shadow:0 25px 75px #a7427050}
+.advent-modal-card.birthday-gift-modal .advent-modal-flower{font-size:3.8rem}
+.advent-modal-card.birthday-gift-modal .advent-modal-date{color:#ae456e;font-weight:800}
+.birthday-modal-surprise{text-align:center;padding:0 8px 12px}
+.birthday-modal-surprise h3{font-family:Georgia,serif;color:#a53465;font-size:clamp(1.6rem,5vw,2.15rem);line-height:1.12;margin:18px 0 12px}
+.birthday-modal-surprise p{color:#7f5367;line-height:1.7;font-size:1rem}
+.birthday-modal-roses{font-size:2.4rem}
+.birthday-modal-link{display:block;margin:23px auto;background:linear-gradient(135deg,#ba3266,#e16a95);color:white;text-decoration:none;border-radius:100px;padding:16px 15px;font-weight:800;box-shadow:0 12px 25px #af36654d;transition:transform .2s}
+.birthday-modal-link:hover{transform:translateY(-3px)}
+.birthday-modal-surprise small{color:#a16d84}
+@media(prefers-reduced-motion:reduce){.advent-day.birthday-gift-tile .day-icon{animation:none}}
