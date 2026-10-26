@@ -110,3 +110,51 @@
  .magic-entry,.magic-memory-inner{transition:none}
  .magic-wish-confetti{display:none}
 }
+
+
+/* Osito deluxe y celebración floral */
+.hero:before{content:"";position:absolute;top:62px;left:50%;transform:translateX(-50%);width:min(750px,86%);height:20px;z-index:1;opacity:.7;background:radial-gradient(circle,#f4a9c6 0 7px,transparent 8px) 0 0/57px 20px repeat-x}
+.letter-card,.magic-rose-room,.magic-cake-card{position:relative}
+.magic-rose-room:after,.magic-cake-card:after{content:"✦ ❀ ✦";position:absolute;right:14px;top:14px;color:#df91ae;letter-spacing:6px;pointer-events:none;opacity:.65}
+.closing{position:relative;background:radial-gradient(ellipse at 50% 43%,rgba(255,255,255,.65),transparent 65%)}
+.closing:before,.closing:after{position:absolute;top:24%;font-size:2.2rem;opacity:.45;pointer-events:none}
+.closing:before{content:"🌹";left:8%;transform:rotate(-17deg)}
+.closing:after{content:"🎀";right:8%;transform:rotate(17deg)}
+.bear-garden{position:relative;isolation:isolate;display:grid;place-items:center;width:min(620px,100%);min-height:400px;margin:0 auto 8px;border-radius:40px;background:radial-gradient(ellipse at 50% 55%,#fff8fb 0%,#ffeaf2 63%,transparent 77%);border:1px solid rgba(245,202,218,.38)}
+.bear-garden:before{content:"";position:absolute;z-index:-1;width:74%;height:64%;top:16%;border:1px dashed rgba(200,106,150,.18);border-radius:50%;background:radial-gradient(ellipse,#fff 0%,rgba(253,235,242,.33) 55%,transparent 75%)}
+.bear-garden:after{content:"";position:absolute;bottom:32px;left:18%;width:64%;height:19px;border-radius:50%;background:rgba(154,67,101,.11);filter:blur(9px);z-index:0}
+.bear-deco-flower{position:absolute;font-size:3.4rem;bottom:56px;opacity:.89;filter:drop-shadow(0 6px 10px rgba(188,83,124,.18));animation:bearFlowerSway 5s ease-in-out infinite alternate}
+.flower-left{left:7%;transform:rotate(-18deg)}.flower-right{right:7%;animation-delay:-2s}
+.bear-deco-ribbon{position:absolute;top:18px;left:50%;transform:translateX(-50%);white-space:nowrap;color:#a45373;letter-spacing:.15em;font-size:.7rem;font-weight:800;background:rgba(255,255,255,.72);padding:9px 17px;border-radius:40px}
+.bear-ambient-sparkles{position:absolute;inset:0;pointer-events:none}
+.bear-star{position:absolute;color:#e5b875;font-size:1.5rem;animation:bearSparkle 2.7s infinite alternate}
+.bs1{left:19%;top:24%}.bs2{right:15%;top:26%;animation-delay:.8s}.bs3{left:14%;top:49%;animation-delay:1.3s}.bs4{right:16%;top:58%;animation-delay:1.9s}
+.teddy.teddy-deluxe{width:min(350px,74vw);height:auto;margin:22px auto 10px;border:0;background:none;position:relative;z-index:2;cursor:pointer;filter:none;animation:bearDeluxeFloat 4.5s ease-in-out infinite alternate}
+.teddy.teddy-deluxe svg{display:block;width:100%;height:auto;max-width:100%;overflow:visible;filter:drop-shadow(0 15px 13px rgba(133,55,86,.11))}
+.teddy.teddy-deluxe:focus-visible{outline:3px solid #bc467c;outline-offset:8px;border-radius:28px}
+.teddy-deluxe .bear-heart,.teddy-deluxe .bear-head,.teddy-deluxe .bear-left-arm,.teddy-deluxe .bear-right-arm,.teddy-deluxe .bear-bowtie,.teddy-deluxe .bear-heart-shine{transform-box:fill-box;transform-origin:center}
+.teddy-deluxe .bear-heart{animation:bearIdleHeart 3.1s ease-in-out infinite}
+.teddy-deluxe.celebrating .bear-heart{animation:bearDeluxeBeat .8s ease-in-out 4}
+.teddy-deluxe.celebrating .bear-head{animation:bearDeluxeNod .85s ease-in-out 3}
+.teddy-deluxe.celebrating .bear-left-arm{animation:bearDeluxeArmL .9s ease-in-out 3}
+.teddy-deluxe.celebrating .bear-right-arm{animation:bearDeluxeArmR .9s ease-in-out 3}
+.teddy-deluxe.celebrating .bear-bowtie{animation:bearDeluxeBow .85s ease-in-out 3}
+.teddy-deluxe.celebrating .bear-heart-shine{animation:bearDeluxeGlitter .75s ease-in-out 4}
+.teddy-deluxe.celebrating .bear-sleep-eyes{animation:bearBlink 1s ease-in-out 2}
+.teddy-deluxe.celebrating .bear-eyes{animation:bearEyesClose 1s ease-in-out 2}
+.bear-floating-heart{position:absolute;left:50%;top:42%;font-size:1.45rem;pointer-events:none;z-index:10;animation:bearHeartUp 1.8s ease-out forwards;animation-delay:var(--delay,0s)}
+.bear-hint{font-size:1rem;color:#a55173}.magic-bear-extra{font-size:1.14rem;color:#92546c}
+@keyframes bearIdleHeart{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@keyframes bearDeluxeFloat{to{transform:translateY(-9px)}}
+@keyframes bearDeluxeBeat{0%,100%{transform:scale(1)}25%,65%{transform:scale(1.18)}45%,83%{transform:scale(1.03)}}
+@keyframes bearDeluxeNod{0%,100%{transform:rotate(0)}32%{transform:rotate(-5deg)}67%{transform:rotate(4deg)}}
+@keyframes bearDeluxeArmL{50%{transform:rotate(-13deg)}}
+@keyframes bearDeluxeArmR{50%{transform:rotate(13deg)}}
+@keyframes bearDeluxeBow{50%{transform:scale(1.14)}}
+@keyframes bearDeluxeGlitter{50%{transform:scale(1.5);opacity:.8}}
+@keyframes bearBlink{0%,20%,80%,100%{opacity:0}35%,55%{opacity:1}}
+@keyframes bearEyesClose{0%,20%,80%,100%{opacity:1}35%,55%{opacity:0}}
+@keyframes bearFlowerSway{to{transform:rotate(8deg) translateY(-9px)}}
+@keyframes bearSparkle{to{opacity:.25;transform:scale(.8) rotate(30deg)}}
+@media(max-width:700px){.bear-garden{min-height:330px;border-radius:28px}.bear-deco-flower{font-size:2.4rem;bottom:45px}.bear-deco-ribbon{font-size:.53rem}.teddy.teddy-deluxe{width:min(290px,76vw)}}
+@media(prefers-reduced-motion:reduce){.teddy.teddy-deluxe,.teddy-deluxe .bear-heart,.bear-deco-flower,.bear-star{animation:none!important}}
