@@ -604,18 +604,20 @@ document.addEventListener("DOMContentLoaded", () => {
       modalDate.textContent = prettyDate(date);
       if(key === "2026-10-27"){
         modalDate.textContent = birthdayPreview && currentPeruDateKey() < "2026-10-27"
-          ? "VISTA PREVIA · 27 de octubre 🎁"
-          : "Feliz cumpleaños, Betsua · 27 de octubre";
+          ? "Vista previa para Christopher · 27 de octubre 🎁"
+          : "Feliz cumpleaños, Betsua · 27 de octubre 🎂";
         modalMessage.innerHTML = [
-          '<div class="birthday-present-message">',
-          '<div class="birthday-present-flowers" aria-hidden="true">🌹 🎀 🌹</div>',
-          '<h3>Una sorpresa especialmente para ti, Betsua</h3>',
-          '<p>Este último día guarda algo distinto: preparé un pequeño regalo para celebrar tu cumpleaños, aunque estemos lejos.</p>',
-          '<a href="cumpleanos-betsua.html" class="birthday-present-link">Abrir mi sorpresa de cumpleaños 💗</a>',
-          '<small>Con mucho cariño, Christopher ♡</small>',
+          '<div class="birthday-modal-surprise">',
+          '<span class="birthday-modal-roses" aria-hidden="true">🌹 💗 🌹</span>',
+          '<h3>Una sorpresa especialmente para ti</h3>',
+          '<p>Este último cuadrito es la puerta a un regalo que preparé pensando en ti, con muchísimo cariño.</p>',
+          '<a href="cumpleanos-betsua.html" class="birthday-modal-link">Abrir mi regalo de cumpleaños 🎀</a>',
+          '<small>Con cariño, Christopher</small>',
           '</div>'
         ].join("");
-        if(modalCard) modalCard.classList.add("birthday-present-dialog");
+        if(modalCard) modalCard.classList.add("birthday-gift-modal");
+        const modalFlower = modal.querySelector(".advent-modal-flower");
+        if(modalFlower) modalFlower.textContent="🎁";
       }else{
         modalMessage.innerHTML = dailyMessages[key] || "Hoy solo quería dejarte algo bonito por aquí. 🌻";
         if(dailyImages[key] && modalFigure && modalImage){
@@ -663,8 +665,8 @@ document.addEventListener("DOMContentLoaded", () => {
         (isToday?" today":"")+
         (opened?" opened":"")+
         (!isBirthday && dailyImages[key]?" has-image":"")+
-        (isBirthday?" birthday-present":"")+
-        (simulate?" birthday-present-preview":"");
+        (isBirthday?" birthday-present birthday-gift-tile":"")+
+        (simulate?" birthday-present-preview birthday-preview":"");
       btn.dataset.date=key;
       if(isBirthday){
         btn.innerHTML=[
@@ -674,7 +676,7 @@ document.addEventListener("DOMContentLoaded", () => {
           '<span class="birthday-present-bow" aria-hidden="true"><i></i><i></i></span>',
           '<span class="birthday-present-number">27</span>',
           '<span class="birthday-present-caption">'+
-            (simulate?"VISTA DE PRUEBA":locked?"PRÓXIMAMENTE":"ÁBREME")+
+            (simulate?"VISTA PREVIA":locked?"¡MUY PRONTO!":"ÁBREME")+
           '</span>'
         ].join("");
         btn.setAttribute("aria-label",locked?
