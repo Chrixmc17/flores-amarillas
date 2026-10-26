@@ -168,7 +168,7 @@
     @media(prefers-reduced-motion:reduce){.birthday-envelope,.teddy.celebrating .bear-heart,.teddy.celebrating .bear-head,.teddy.celebrating .bear-left-arm,.teddy.celebrating .bear-right-arm,.bear-floating-heart{animation:none!important;transition:none!important}}
 
   </style>
-  <link rel="stylesheet" href="css/betsua-magia.css?v=20261026-special1">
+  <link rel="stylesheet" href="css/betsua-magia.css?v=20261026-bear-deluxe2">
 </head>
 <body>
   <div class="magic-entry" id="magicWelcome" role="dialog" aria-modal="true" aria-label="Sorpresa de cumpleaños para Betsua">
@@ -354,25 +354,115 @@
       </div>
     </section>
     <section class="closing">
-      <button class="teddy" id="birthdayBear" type="button" aria-label="Toca el osito para hacer latir su corazón" aria-describedby="bearMessage">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 250" width="230" height="221" aria-hidden="true">
-          <ellipse cx="130" cy="223" rx="84" ry="15" fill="#b86f8b" opacity=".14"/>
-          <circle cx="66" cy="58" r="34" fill="#b8795b"/><circle cx="194" cy="58" r="34" fill="#b8795b"/>
-          <circle cx="66" cy="58" r="19" fill="#eeb5ac"/><circle cx="194" cy="58" r="19" fill="#eeb5ac"/>
-          <ellipse cx="130" cy="168" rx="82" ry="78" fill="#c88c6e"/><ellipse cx="130" cy="180" rx="51" ry="48" fill="#edc0a8"/>
-          <g class="bear-left-arm"><ellipse cx="52" cy="161" rx="30" ry="51" transform="rotate(25 52 161)" fill="#c88c6e"/></g>
-          <g class="bear-right-arm"><ellipse cx="209" cy="161" rx="30" ry="51" transform="rotate(-25 209 161)" fill="#c88c6e"/></g>
-          <ellipse cx="84" cy="222" rx="38" ry="25" fill="#b97e60"/><ellipse cx="176" cy="222" rx="38" ry="25" fill="#b97e60"/>
-          <g class="bear-head"><circle cx="130" cy="94" r="83" fill="#d39b7e"/>
-          <ellipse cx="130" cy="119" rx="47" ry="34" fill="#f5d1bc"/>
-          <circle cx="101" cy="90" r="6" fill="#52362d"/><circle cx="158" cy="90" r="6" fill="#52362d"/>
-          <ellipse cx="130" cy="109" rx="11" ry="8" fill="#6d4639"/>
-          <path d="M130 117Q121 132 113 122M130 117Q139 132 148 122" stroke="#71483b" stroke-width="3" fill="none" stroke-linecap="round"/></g>
-          <g class="bear-heart"><path d="M99 172C70 142 83 124 107 130C121 133 130 146 130 146C147 118 177 127 178 147C180 166 153 188 130 208C119 200 109 191 99 172" fill="#dc5182"/>
-          <text x="130" y="176" font-size="25" text-anchor="middle" fill="#fff">♡</text></g>
-          <path d="M113 161L132 151L128 170Z M146 161L132 151L136 170Z" fill="#fff0c7"/>
-        </svg>
-      </button>
+      <div class="bear-garden" aria-label="Un osito de peluche entre rosas de cumpleaños">
+        <div class="bear-ambient-sparkles" aria-hidden="true">
+          <span class="bear-star bs1">✦</span><span class="bear-star bs2">✧</span><span class="bear-star bs3">✦</span><span class="bear-star bs4">✧</span>
+        </div>
+        <span class="bear-deco-flower flower-left" aria-hidden="true">🌹</span>
+        <span class="bear-deco-flower flower-right" aria-hidden="true">🌹</span>
+        <span class="bear-deco-ribbon" aria-hidden="true">♡ UN ABRAZO PARA TI ♡</span>
+        <button class="teddy teddy-deluxe" id="birthdayBear" type="button" aria-label="Abrazar al osito y hacer latir su corazón" aria-describedby="bearMessage">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 400" role="img" aria-label="Osito de peluche detallado con moño de terciopelo, mejillas rosadas y un gran corazón rosa">
+            <defs>
+              <radialGradient id="bearFur" cx="31%" cy="17%" r="92%">
+                <stop offset="0" stop-color="#f7d6ad"/><stop offset=".37" stop-color="#dbab86"/><stop offset=".76" stop-color="#bc8164"/><stop offset="1" stop-color="#a96c56"/>
+              </radialGradient>
+              <radialGradient id="bearFurFace" cx="33%" cy="20%" r="81%">
+                <stop offset="0" stop-color="#f5d7b5"/><stop offset=".5" stop-color="#d7a17f"/><stop offset="1" stop-color="#b77a5c"/>
+              </radialGradient>
+              <radialGradient id="bearMuzzle" cx="35%" cy="24%" r="83%">
+                <stop offset="0" stop-color="#fff4e6"/><stop offset="1" stop-color="#e8c3ad"/>
+              </radialGradient>
+              <linearGradient id="bearHeartGradient" x1="0%" y1="0%" x2="93%" y2="100%">
+                <stop offset="0" stop-color="#ffb5cf"/><stop offset=".33" stop-color="#f46a9e"/><stop offset=".75" stop-color="#d93873"/><stop offset="1" stop-color="#a72f63"/>
+              </linearGradient>
+              <linearGradient id="bearBowGradient" x1="0%" y1="0%" x2="95%" y2="85%">
+                <stop offset="0" stop-color="#f9b9d2"/><stop offset=".49" stop-color="#df588c"/><stop offset="1" stop-color="#a52b61"/>
+              </linearGradient>
+              <linearGradient id="bearGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0" stop-color="#fff2b9"/><stop offset=".5" stop-color="#eac584"/><stop offset="1" stop-color="#cb9e5e"/>
+              </linearGradient>
+              <filter id="bearPlushShadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#713751" flood-opacity=".18"/>
+              </filter>
+              <filter id="bearHeartGlow" x="-35%" y="-35%" width="170%" height="170%">
+                <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#bc4775" flood-opacity=".3"/>
+              </filter>
+            </defs>
+            <ellipse cx="179" cy="370" rx="127" ry="15" fill="#8d4663" opacity=".12"/>
+            <g class="bear-body" filter="url(#bearPlushShadow)">
+              <ellipse cx="180" cy="274" rx="112" ry="98" fill="url(#bearFur)" stroke="#a8765f" stroke-width="2"/>
+              <ellipse cx="180" cy="289" rx="72" ry="62" fill="url(#bearMuzzle)" opacity=".97"/>
+              <ellipse cx="102" cy="343" rx="48" ry="34" fill="url(#bearFur)" stroke="#a8765f" stroke-width="2"/>
+              <ellipse cx="258" cy="343" rx="48" ry="34" fill="url(#bearFur)" stroke="#a8765f" stroke-width="2"/>
+              <ellipse cx="101" cy="349" rx="27" ry="20" fill="#e7b5a7" opacity=".9"/>
+              <ellipse cx="259" cy="349" rx="27" ry="20" fill="#e7b5a7" opacity=".9"/>
+              <g fill="#d79298" opacity=".72">
+                <ellipse cx="91" cy="343" rx="6" ry="8"/><ellipse cx="103" cy="337" rx="6" ry="8"/><ellipse cx="115" cy="343" rx="6" ry="8"/>
+                <ellipse cx="249" cy="343" rx="6" ry="8"/><ellipse cx="261" cy="337" rx="6" ry="8"/><ellipse cx="273" cy="343" rx="6" ry="8"/>
+              </g>
+            </g>
+            <g class="bear-left-arm" filter="url(#bearPlushShadow)">
+              <ellipse cx="79" cy="247" rx="35" ry="64" transform="rotate(25 79 247)" fill="url(#bearFur)" stroke="#ad775f" stroke-width="2"/>
+              <ellipse cx="96" cy="278" rx="22" ry="19" transform="rotate(20 96 278)" fill="#eac0a8" opacity=".8"/>
+            </g>
+            <g class="bear-right-arm" filter="url(#bearPlushShadow)">
+              <ellipse cx="281" cy="247" rx="35" ry="64" transform="rotate(-25 281 247)" fill="url(#bearFur)" stroke="#ad775f" stroke-width="2"/>
+              <ellipse cx="264" cy="278" rx="22" ry="19" transform="rotate(-20 264 278)" fill="#eac0a8" opacity=".8"/>
+            </g>
+            <g class="bear-head" filter="url(#bearPlushShadow)">
+              <circle cx="101" cy="91" r="43" fill="url(#bearFur)" stroke="#a96f58" stroke-width="3"/>
+              <circle cx="259" cy="91" r="43" fill="url(#bearFur)" stroke="#a96f58" stroke-width="3"/>
+              <circle cx="101" cy="92" r="26" fill="#ebada9" opacity=".93"/>
+              <circle cx="259" cy="92" r="26" fill="#ebada9" opacity=".93"/>
+              <circle cx="180" cy="160" r="103" fill="url(#bearFurFace)" stroke="#b47a62" stroke-width="2.5"/>
+              <path d="M107 104Q179 61 252 108" stroke="#ffeed6" stroke-width="8" opacity=".11" fill="none" stroke-linecap="round"/>
+              <ellipse cx="180" cy="195" rx="61" ry="45" fill="url(#bearMuzzle)"/>
+              <ellipse cx="122" cy="186" rx="20" ry="11" fill="#f3a4ad" opacity=".74"/>
+              <ellipse cx="239" cy="186" rx="20" ry="11" fill="#f3a4ad" opacity=".74"/>
+              <g class="bear-eyes">
+                <ellipse cx="143" cy="154" rx="8.5" ry="10.5" fill="#513731"/><ellipse cx="216" cy="154" rx="8.5" ry="10.5" fill="#513731"/>
+                <circle cx="146" cy="150" r="3" fill="#fff"/><circle cx="219" cy="150" r="3" fill="#fff"/>
+                <circle cx="140" cy="158" r="1.4" fill="#fff" opacity=".6"/><circle cx="213" cy="158" r="1.4" fill="#fff" opacity=".6"/>
+              </g>
+              <g class="bear-sleep-eyes" opacity="0" fill="none" stroke="#513731" stroke-width="4" stroke-linecap="round">
+                <path d="M133 158Q143 167 152 158"/><path d="M207 158Q217 167 226 158"/>
+              </g>
+              <path d="M165 186Q180 174 195 186Q195 198 180 203Q165 198 165 186Z" fill="#754d46"/>
+              <ellipse cx="173" cy="186" rx="5" ry="2.5" fill="#fff" opacity=".4"/>
+              <path d="M180 202V209 M180 209Q169 223 155 213 M180 209Q192 223 206 213" stroke="#79554a" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <g class="bear-brow-sparkles" fill="#fff7e9" opacity=".85"><circle cx="110" cy="119" r="2"/><circle cx="247" cy="118" r="2"/></g>
+            </g>
+            <g class="bear-bowtie" filter="url(#bearPlushShadow)">
+              <path d="M171 238Q138 210 117 226Q111 244 140 255L170 250Z" fill="url(#bearBowGradient)" stroke="#af386c" stroke-width="2"/>
+              <path d="M189 238Q222 210 243 226Q249 244 220 255L190 250Z" fill="url(#bearBowGradient)" stroke="#af386c" stroke-width="2"/>
+              <path d="M169 250L146 284L170 271L181 258Z" fill="#d75989"/>
+              <path d="M190 250L214 284L188 271L178 258Z" fill="#d75989"/>
+              <ellipse cx="180" cy="246" rx="13" ry="11" fill="#9d2556" stroke="#f6b6cd" stroke-width="2"/>
+              <circle cx="180" cy="245" r="4" fill="url(#bearGold)"/>
+            </g>
+            <g class="bear-heart" filter="url(#bearHeartGlow)">
+              <path d="M180 306C163 292 111 257 118 224C123 201 151 196 180 224C203 194 234 199 242 224C252 256 201 292 180 306Z"
+                    fill="url(#bearHeartGradient)" stroke="#b93770" stroke-width="3.5" stroke-linejoin="round"/>
+              <path d="M132 229Q134 213 151 216" stroke="#fff4f8" stroke-width="8" stroke-linecap="round" opacity=".43" fill="none"/>
+              <path d="M210 214Q232 216 232 232" stroke="#fff4f8" stroke-width="5" stroke-linecap="round" opacity=".3" fill="none"/>
+              <path class="bear-heart-little" d="M180 260C166 244 150 256 161 269L180 285L200 269C211 256 194 245 180 260Z" fill="#ffe3ee" opacity=".96"/>
+              <text x="180" y="277" text-anchor="middle" font-size="15" font-weight="700" font-family="Georgia, serif" fill="#a13464">♡</text>
+              <g class="bear-heart-shine" fill="#ffeff8"><circle cx="220" cy="243" r="3.5"/><path d="M221 233l1 6 6 1-6 1-1 6-1-6-6-1 6-1Z" opacity=".86"/></g>
+            </g>
+            <g class="bear-hand-over-heart">
+              <ellipse cx="118" cy="282" rx="25" ry="19" transform="rotate(23 118 282)" fill="url(#bearFur)"/>
+              <ellipse cx="244" cy="282" rx="25" ry="19" transform="rotate(-23 244 282)" fill="url(#bearFur)"/>
+              <path d="M105 281Q118 289 133 281 M228 281Q242 289 256 281" fill="none" stroke="#eed2b6" stroke-width="2" opacity=".65"/>
+            </g>
+            <g class="bear-little-stars" fill="#f3d39c">
+              <path d="M54 164l5 10 11 2-8 8 2 12-10-6-10 6 2-12-8-8 11-2Z"/>
+              <path d="M305 169l4 8 9 1-6 7 1 9-8-4-8 4 1-9-6-7 9-1Z"/>
+              <circle cx="72" cy="142" r="3"/><circle cx="293" cy="139" r="3"/>
+            </g>
+          </svg>
+        </button>
+      </div>
       <p class="bear-hint" id="bearMessage" aria-live="polite">Toca al osito: su corazón late para ti. 💗</p>
       <p class="magic-bear-extra" id="magicBearPhrase" aria-live="polite">A veces los abrazos también pueden viajar en forma de pequeños detalles. 🧸</p>
       <span class="overline">Hasta el último pétalo</span>
@@ -611,6 +701,6 @@
       });
     })();
   </script>
-  <script src="js/betsua-magia.js?v=20261026-special1"></script>
+  <script src="js/betsua-magia.js?v=20261026-bear-deluxe2"></script>
 </body>
 </html>
